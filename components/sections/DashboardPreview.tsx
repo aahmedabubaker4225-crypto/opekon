@@ -39,7 +39,7 @@ const schedule = [
     time: "10:30 AM",
     title: "Driveway estimate",
     customer: "Anderson Property",
-    crew: "Ahmed",
+    crew: "Mike",
     status: "Upcoming",
   },
   {
@@ -53,7 +53,7 @@ const schedule = [
     time: "3:30 PM",
     title: "Final walkthrough",
     customer: "Wilson Residence",
-    crew: "Ahmed",
+    crew: "Mike",
     status: "Upcoming",
   },
 ];
@@ -189,8 +189,7 @@ const accentStyles: Record<
     column: "border-zinc-700 bg-zinc-900/45",
     title: "text-violet-300/90",
     dot: "bg-violet-400/80",
-    count:
-      "border-violet-400/20 bg-violet-400/10 text-violet-300/90",
+    count: "border-violet-400/20 bg-violet-400/10 text-violet-300/90",
     cardStrip: "bg-violet-400/70",
     addButton:
       "border-violet-400/15 text-violet-300/75 hover:border-violet-400/30 hover:bg-violet-400/[0.05]",
@@ -304,7 +303,7 @@ export default function DashboardPreview() {
                   <p className="text-sm text-zinc-500">Monday, July 15</p>
 
                   <h3 className="mt-1 text-2xl font-semibold text-white">
-                    Good morning, John
+                    Good morning, Mike
                   </h3>
                 </div>
 
@@ -529,7 +528,7 @@ export default function DashboardPreview() {
                 </div>
               </div>
 
-              <div className="mt-5 rounded-xl border border-zinc-800 bg-black">
+              <div className="mt-5 overflow-hidden rounded-xl border border-zinc-800 bg-black">
                 <div className="border-b border-zinc-800 px-5 py-4">
                   <h4 className="font-semibold text-white">Recent activity</h4>
 
@@ -542,19 +541,19 @@ export default function DashboardPreview() {
                   {activity.map((item) => (
                     <div
                       key={item.title}
-                      className="flex items-start justify-between gap-5 px-5 py-4"
+                      className="group flex items-start justify-between gap-6 px-5 py-5 transition hover:bg-zinc-950/70"
                     >
-                      <div>
+                      <div className="min-w-0">
                         <p className="text-sm font-medium text-zinc-200">
                           {item.title}
                         </p>
 
-                        <p className="mt-1 text-xs leading-5 text-zinc-600">
+                        <p className="mt-1 text-xs leading-5 text-zinc-500">
                           {item.detail}
                         </p>
                       </div>
 
-                      <p className="shrink-0 text-xs text-zinc-700">
+                      <p className="shrink-0 pt-0.5 text-xs font-medium text-zinc-500 transition group-hover:text-zinc-400">
                         {item.time}
                       </p>
                     </div>
