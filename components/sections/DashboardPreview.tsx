@@ -27,37 +27,6 @@ const stats = [
   },
 ];
 
-const schedule = [
-  {
-    time: "8:00 AM",
-    title: "Roof inspection",
-    customer: "Miller Residence",
-    crew: "Crew A",
-    status: "In progress",
-  },
-  {
-    time: "10:30 AM",
-    title: "Driveway estimate",
-    customer: "Anderson Property",
-    crew: "Mike",
-    status: "Upcoming",
-  },
-  {
-    time: "1:00 PM",
-    title: "Concrete pour",
-    customer: "Northview Homes",
-    crew: "Crew B",
-    status: "Upcoming",
-  },
-  {
-    time: "3:30 PM",
-    title: "Final walkthrough",
-    customer: "Wilson Residence",
-    crew: "Mike",
-    status: "Upcoming",
-  },
-];
-
 const jobColumns: {
   title: string;
   count: number;
@@ -138,24 +107,6 @@ const jobColumns: {
   },
 ];
 
-const activity = [
-  {
-    title: "Quote approved",
-    detail: "Anderson Property approved an $8,450 quote.",
-    time: "8 min ago",
-  },
-  {
-    title: "New lead received",
-    detail: "Sarah Thompson requested a roof repair estimate.",
-    time: "24 min ago",
-  },
-  {
-    title: "Invoice paid",
-    detail: "Wilson Residence paid invoice #1048.",
-    time: "1 hr ago",
-  },
-];
-
 const accentStyles: Record<
   JobAccent,
   {
@@ -189,7 +140,8 @@ const accentStyles: Record<
     column: "border-zinc-700 bg-zinc-900/45",
     title: "text-violet-300/90",
     dot: "bg-violet-400/80",
-    count: "border-violet-400/20 bg-violet-400/10 text-violet-300/90",
+    count:
+      "border-violet-400/20 bg-violet-400/10 text-violet-300/90",
     cardStrip: "bg-violet-400/70",
     addButton:
       "border-violet-400/15 text-violet-300/75 hover:border-violet-400/30 hover:bg-violet-400/[0.05]",
@@ -206,22 +158,6 @@ const accentStyles: Record<
   },
 };
 
-function ScheduleStatus({ status }: { status: string }) {
-  const isActive = status === "In progress";
-
-  return (
-    <span
-      className={`rounded-full border px-2.5 py-1 text-xs font-medium ${
-        isActive
-          ? "border-emerald-500/20 bg-emerald-500/10 text-emerald-300"
-          : "border-zinc-700 bg-zinc-900 text-zinc-400"
-      }`}
-    >
-      {status}
-    </span>
-  );
-}
-
 export default function DashboardPreview() {
   return (
     <section className="relative border-t border-zinc-900 bg-black px-4 py-24 sm:px-6 lg:py-32">
@@ -234,12 +170,12 @@ export default function DashboardPreview() {
           </p>
 
           <h2 className="mt-5 text-3xl font-bold tracking-tight text-white sm:text-5xl">
-            Know exactly what needs your attention.
+            See your entire business at a glance.
           </h2>
 
           <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-zinc-400">
-            See today&apos;s schedule, move jobs forward, respond to leads, and
-            keep your entire business organized from one dashboard.
+            Track revenue, leads, quotes, and every job from one clean
+            workspace.
           </p>
         </div>
 
@@ -258,7 +194,7 @@ export default function DashboardPreview() {
             <div className="w-14" />
           </div>
 
-          <div className="grid min-h-[820px] lg:grid-cols-[220px_1fr]">
+          <div className="grid lg:grid-cols-[220px_1fr]">
             <aside className="hidden border-r border-zinc-800 bg-black p-5 lg:block">
               <div className="mb-8 flex items-center gap-3">
                 <div className="flex h-9 w-9 items-center justify-center rounded-full border border-zinc-700 bg-zinc-900 font-bold text-white">
@@ -334,109 +270,7 @@ export default function DashboardPreview() {
                 ))}
               </div>
 
-              <div className="mt-5 grid gap-5 xl:grid-cols-[1.35fr_0.85fr]">
-                <div className="rounded-xl border border-zinc-800 bg-black">
-                  <div className="flex items-center justify-between border-b border-zinc-800 px-5 py-4">
-                    <div>
-                      <h4 className="font-semibold text-white">
-                        Today&apos;s schedule
-                      </h4>
-
-                      <p className="mt-1 text-sm text-zinc-500">
-                        4 jobs and appointments
-                      </p>
-                    </div>
-
-                    <button
-                      type="button"
-                      className="text-sm text-zinc-400 transition hover:text-white"
-                    >
-                      Open calendar
-                    </button>
-                  </div>
-
-                  <div className="divide-y divide-zinc-900">
-                    {schedule.map((item) => (
-                      <div
-                        key={`${item.time}-${item.title}`}
-                        className="grid gap-4 px-5 py-4 transition hover:bg-zinc-950 sm:grid-cols-[80px_1fr_auto]"
-                      >
-                        <p className="text-sm font-medium text-zinc-500">
-                          {item.time}
-                        </p>
-
-                        <div>
-                          <p className="text-sm font-medium text-zinc-200">
-                            {item.title}
-                          </p>
-
-                          <p className="mt-1 text-xs text-zinc-600">
-                            {item.customer} · {item.crew}
-                          </p>
-                        </div>
-
-                        <div className="flex items-center">
-                          <ScheduleStatus status={item.status} />
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="rounded-xl border border-zinc-800 bg-black">
-                  <div className="border-b border-zinc-800 px-5 py-4">
-                    <h4 className="font-semibold text-white">
-                      Needs your attention
-                    </h4>
-
-                    <p className="mt-1 text-sm text-zinc-500">
-                      Important actions for today
-                    </p>
-                  </div>
-
-                  <div className="space-y-3 p-4">
-                    <div className="rounded-lg border border-amber-500/20 bg-amber-500/5 p-4">
-                      <div className="flex items-start justify-between gap-4">
-                        <div>
-                          <p className="text-sm font-medium text-amber-200">
-                            3 leads need a reply
-                          </p>
-
-                          <p className="mt-1 text-xs leading-5 text-zinc-500">
-                            The oldest lead has been waiting for 46 minutes.
-                          </p>
-                        </div>
-
-                        <span className="rounded-full bg-amber-400 px-2 py-0.5 text-xs font-semibold text-black">
-                          3
-                        </span>
-                      </div>
-                    </div>
-
-                    <div className="rounded-lg border border-zinc-800 bg-zinc-950 p-4">
-                      <p className="text-sm font-medium text-zinc-200">
-                        2 quotes awaiting follow-up
-                      </p>
-
-                      <p className="mt-1 text-xs leading-5 text-zinc-600">
-                        Combined potential value of $14,700.
-                      </p>
-                    </div>
-
-                    <div className="rounded-lg border border-zinc-800 bg-zinc-950 p-4">
-                      <p className="text-sm font-medium text-zinc-200">
-                        1 invoice is overdue
-                      </p>
-
-                      <p className="mt-1 text-xs leading-5 text-zinc-600">
-                        Invoice #1044 · $3,850 · 6 days overdue.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="mt-5 overflow-hidden rounded-2xl border border-zinc-700 bg-zinc-950/80 shadow-xl shadow-black/30">
+              <div className="mt-6 overflow-hidden rounded-2xl border border-zinc-700 bg-zinc-950/80 shadow-xl shadow-black/30">
                 <div className="flex flex-col justify-between gap-3 border-b border-zinc-800 px-6 py-5 sm:flex-row sm:items-center">
                   <div>
                     <h4 className="text-lg font-semibold text-white">
@@ -525,39 +359,6 @@ export default function DashboardPreview() {
                       </div>
                     );
                   })}
-                </div>
-              </div>
-
-              <div className="mt-5 overflow-hidden rounded-xl border border-zinc-800 bg-black">
-                <div className="border-b border-zinc-800 px-5 py-4">
-                  <h4 className="font-semibold text-white">Recent activity</h4>
-
-                  <p className="mt-1 text-sm text-zinc-500">
-                    What changed across your business
-                  </p>
-                </div>
-
-                <div className="divide-y divide-zinc-900">
-                  {activity.map((item) => (
-                    <div
-                      key={item.title}
-                      className="group flex items-start justify-between gap-6 px-5 py-5 transition hover:bg-zinc-950/70"
-                    >
-                      <div className="min-w-0">
-                        <p className="text-sm font-medium text-zinc-200">
-                          {item.title}
-                        </p>
-
-                        <p className="mt-1 text-xs leading-5 text-zinc-500">
-                          {item.detail}
-                        </p>
-                      </div>
-
-                      <p className="shrink-0 pt-0.5 text-xs font-medium text-zinc-500 transition group-hover:text-zinc-400">
-                        {item.time}
-                      </p>
-                    </div>
-                  ))}
                 </div>
               </div>
             </div>
