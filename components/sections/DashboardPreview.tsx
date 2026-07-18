@@ -91,43 +91,43 @@ const accentStyles: Record<
   }
 > = {
   blue: {
-    column: "border-blue-400/15 bg-blue-400/[0.025]",
+    column: "border-blue-400/20 bg-blue-400/[0.035]",
     title: "text-blue-300",
     dot: "bg-blue-400",
-    count: "border-blue-400/20 bg-blue-400/10 text-blue-300",
+    count: "border-blue-400/25 bg-blue-400/10 text-blue-200",
     cardStrip: "bg-blue-400",
   },
   amber: {
-    column: "border-amber-400/15 bg-amber-400/[0.025]",
+    column: "border-amber-400/20 bg-amber-400/[0.035]",
     title: "text-amber-300",
     dot: "bg-amber-400",
-    count: "border-amber-400/20 bg-amber-400/10 text-amber-300",
+    count: "border-amber-400/25 bg-amber-400/10 text-amber-200",
     cardStrip: "bg-amber-400",
   },
   violet: {
-    column: "border-violet-400/15 bg-violet-400/[0.025]",
+    column: "border-violet-400/20 bg-violet-400/[0.035]",
     title: "text-violet-300",
     dot: "bg-violet-400",
-    count: "border-violet-400/20 bg-violet-400/10 text-violet-300",
+    count: "border-violet-400/25 bg-violet-400/10 text-violet-200",
     cardStrip: "bg-violet-400",
   },
   emerald: {
-    column: "border-emerald-400/15 bg-emerald-400/[0.025]",
+    column: "border-emerald-400/20 bg-emerald-400/[0.035]",
     title: "text-emerald-300",
     dot: "bg-emerald-400",
-    count: "border-emerald-400/20 bg-emerald-400/10 text-emerald-300",
+    count: "border-emerald-400/25 bg-emerald-400/10 text-emerald-200",
     cardStrip: "bg-emerald-400",
   },
 };
 
 export default function DashboardPreview() {
   return (
-    <section className="relative border-t border-zinc-900 bg-black px-4 py-20 sm:px-6 lg:py-28">
-      <div className="pointer-events-none absolute inset-x-0 top-0 mx-auto h-72 max-w-4xl bg-white/5 blur-[120px]" />
+    <section className="relative border-t border-zinc-800 bg-zinc-950 px-4 py-20 sm:px-6 lg:py-28">
+      <div className="pointer-events-none absolute inset-x-0 top-0 mx-auto h-72 max-w-4xl bg-white/[0.06] blur-[120px]" />
 
       <div className="relative mx-auto max-w-7xl">
         <div className="mx-auto mb-12 max-w-3xl text-center">
-          <p className="text-sm font-medium uppercase tracking-[0.25em] text-zinc-500">
+          <p className="text-sm font-medium uppercase tracking-[0.25em] text-zinc-400">
             Everything under control
           </p>
 
@@ -135,21 +135,21 @@ export default function DashboardPreview() {
             See your entire business at a glance.
           </h2>
 
-          <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-zinc-400">
+          <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-zinc-300">
             Everything you need to run your business—organized into one simple
             workspace.
           </p>
         </div>
 
-        <div className="overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-950 shadow-2xl shadow-black">
-          <div className="flex h-10 items-center border-b border-zinc-800 px-4">
+        <div className="overflow-hidden rounded-2xl border border-zinc-700/80 bg-zinc-900 shadow-2xl shadow-black/60">
+          <div className="flex h-10 items-center border-b border-zinc-700/80 bg-zinc-950 px-4">
             <div className="flex gap-2">
-              <span className="h-2.5 w-2.5 rounded-full bg-zinc-700" />
-              <span className="h-2.5 w-2.5 rounded-full bg-zinc-700" />
-              <span className="h-2.5 w-2.5 rounded-full bg-zinc-700" />
+              <span className="h-2.5 w-2.5 rounded-full bg-zinc-600" />
+              <span className="h-2.5 w-2.5 rounded-full bg-zinc-600" />
+              <span className="h-2.5 w-2.5 rounded-full bg-zinc-600" />
             </div>
 
-            <div className="mx-auto rounded-md border border-zinc-800 bg-black px-7 py-1 text-[11px] text-zinc-600">
+            <div className="mx-auto rounded-md border border-zinc-700 bg-zinc-900 px-7 py-1 text-[11px] text-zinc-400">
               app.opekon.com
             </div>
 
@@ -157,9 +157,9 @@ export default function DashboardPreview() {
           </div>
 
           <div className="grid lg:grid-cols-[170px_1fr]">
-            <aside className="hidden border-r border-zinc-800 bg-black p-5 lg:block">
+            <aside className="hidden border-r border-zinc-700/80 bg-zinc-950 p-5 lg:block">
               <div className="mb-9 flex items-center gap-3">
-                <div className="flex h-9 w-9 items-center justify-center rounded-full border border-zinc-700 bg-zinc-900 font-bold text-white">
+                <div className="flex h-9 w-9 items-center justify-center rounded-full border border-zinc-600 bg-zinc-900 font-bold text-white">
                   O
                 </div>
 
@@ -186,12 +186,12 @@ export default function DashboardPreview() {
               </div>
             </aside>
 
-            <main className="min-w-0 p-5 sm:p-7 lg:p-8">
+            <main className="min-w-0 bg-zinc-900 p-5 sm:p-7 lg:p-8">
               <section
                 aria-labelledby="business-heading"
-                className="rounded-2xl border border-zinc-800 bg-black"
+                className="rounded-2xl border border-zinc-700/80 bg-zinc-950"
               >
-                <div className="border-b border-zinc-800 px-6 py-4 sm:px-8">
+                <div className="border-b border-zinc-700/80 px-6 py-4 sm:px-8">
                   <h3
                     id="business-heading"
                     className="text-xl font-semibold text-white"
@@ -217,9 +217,9 @@ export default function DashboardPreview() {
 
               <section
                 aria-labelledby="today-heading"
-                className="mt-5 rounded-2xl border border-zinc-800 bg-black"
+                className="mt-5 rounded-2xl border border-zinc-700/80 bg-zinc-950"
               >
-                <div className="border-b border-zinc-800 px-6 py-4 sm:px-8">
+                <div className="border-b border-zinc-700/80 px-6 py-4 sm:px-8">
                   <h3
                     id="today-heading"
                     className="text-xl font-semibold text-white"
@@ -228,13 +228,13 @@ export default function DashboardPreview() {
                   </h3>
                 </div>
 
-                <div className="grid divide-y divide-zinc-800 sm:grid-cols-2 sm:divide-x sm:divide-y-0">
+                <div className="grid divide-y divide-zinc-700/80 sm:grid-cols-2 sm:divide-x sm:divide-y-0">
                   <div className="px-6 py-7 sm:px-8">
                     <p className="text-5xl font-bold tracking-tight text-white">
                       4
                     </p>
 
-                    <p className="mt-3 text-sm font-semibold text-zinc-300">
+                    <p className="mt-3 text-sm font-semibold text-zinc-200">
                       Jobs today
                     </p>
 
@@ -252,7 +252,7 @@ export default function DashboardPreview() {
                       Needs attention
                     </p>
 
-                    <p className="mt-1 text-sm text-zinc-400">
+                    <p className="mt-1 text-sm text-zinc-300">
                       Leads waiting for a reply
                     </p>
                   </div>
@@ -261,9 +261,9 @@ export default function DashboardPreview() {
 
               <section
                 aria-labelledby="jobs-heading"
-                className="mt-5 overflow-hidden rounded-2xl border border-zinc-800 bg-black"
+                className="mt-5 overflow-hidden rounded-2xl border border-zinc-700/80 bg-zinc-950"
               >
-                <div className="border-b border-zinc-800 px-6 py-4 sm:px-8">
+                <div className="border-b border-zinc-700/80 px-6 py-4 sm:px-8">
                   <h3
                     id="jobs-heading"
                     className="text-xl font-semibold text-white"
@@ -305,13 +305,13 @@ export default function DashboardPreview() {
                           {column.jobs.map((job) => (
                             <article
                               key={`${column.title}-${job.title}`}
-                              className="relative overflow-hidden rounded-lg border border-zinc-800 bg-zinc-950 p-4"
+                              className="relative overflow-hidden rounded-lg border border-zinc-700/80 bg-zinc-900 p-4"
                             >
                               <div
                                 className={`absolute inset-y-0 left-0 w-0.5 ${styles.cardStrip}`}
                               />
 
-                              <p className="text-sm font-medium text-white">
+                              <p className="text-sm font-medium text-zinc-100">
                                 {job.title}
                               </p>
 
@@ -322,7 +322,7 @@ export default function DashboardPreview() {
                               <div className="mt-5 flex items-end justify-between gap-3">
                                 <p className="text-xs text-zinc-400">Value</p>
 
-                                <p className="text-sm font-semibold text-zinc-200">
+                                <p className="text-sm font-semibold text-white">
                                   {job.value}
                                 </p>
                               </div>
