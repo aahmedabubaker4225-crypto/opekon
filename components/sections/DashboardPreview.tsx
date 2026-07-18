@@ -174,14 +174,14 @@ export default function DashboardPreview() {
                 {["Jobs", "Customers"].map((item) => (
                   <div
                     key={item}
-                    className="rounded-lg px-3 py-2.5 text-zinc-600"
+                    className="rounded-lg px-3 py-2.5 text-zinc-400"
                   >
                     {item}
                   </div>
                 ))}
               </nav>
 
-              <div className="mt-10 border-t border-zinc-900 pt-5 text-sm text-zinc-700">
+              <div className="mt-10 border-t border-zinc-800 pt-5 text-sm text-zinc-400">
                 Settings
               </div>
             </aside>
@@ -201,7 +201,7 @@ export default function DashboardPreview() {
                 </div>
 
                 <div className="px-6 py-7 sm:px-8 sm:py-8">
-                  <p className="text-sm font-medium text-zinc-400">
+                  <p className="text-sm font-medium text-zinc-300">
                     Monthly revenue
                   </p>
 
@@ -238,7 +238,7 @@ export default function DashboardPreview() {
                       Jobs today
                     </p>
 
-                    <p className="mt-1 text-sm text-zinc-600">Scheduled</p>
+                    <p className="mt-1 text-sm text-zinc-400">Scheduled</p>
                   </div>
 
                   <div className="relative overflow-hidden px-6 py-7 sm:px-8">
@@ -315,12 +315,12 @@ export default function DashboardPreview() {
                                 {job.title}
                               </p>
 
-                              <p className="mt-1 text-xs text-zinc-500">
+                              <p className="mt-1 text-xs text-zinc-400">
                                 {job.customer}
                               </p>
 
                               <div className="mt-5 flex items-end justify-between gap-3">
-                                <p className="text-xs text-zinc-600">Value</p>
+                                <p className="text-xs text-zinc-400">Value</p>
 
                                 <p className="text-sm font-semibold text-zinc-200">
                                   {job.value}
