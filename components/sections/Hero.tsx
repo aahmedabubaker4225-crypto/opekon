@@ -1,4 +1,48 @@
+"use client";
+
+import { FormEvent, useState } from "react";
+
 export default function Hero() {
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+
+    setIsSubmitting(true);
+    setMessage("");
+    setIsSuccess(false);
+
+    try {
+      const response = await fetch("/api/waitlist", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: email.trim().toLowerCase(),
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        setMessage(data.error || "Something went wrong. Please try again.");
+        return;
+      }
+
+      setIsSuccess(true);
+      setMessage("You're on the waitlist!");
+      setEmail("");
+    } catch {
+      setMessage("Unable to connect. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  }
+
   return (
     <section
       id="waitlist"
@@ -22,30 +66,43 @@ export default function Hero() {
         </p>
 
         <form
-          action="https://tally.so/r/QKWJGI"
-          method="get"
+          onSubmit={handleSubmit}
           className="mx-auto mt-10 flex max-w-2xl flex-col gap-3 sm:flex-row"
         >
           <input
             type="email"
             name="email"
+            value={email}
+            onChange={(event) => setEmail(event.target.value)}
             required
+            disabled={isSubmitting}
             placeholder="Enter your email"
             aria-label="Email address"
-            className="h-14 flex-1 rounded-xl border border-zinc-800 bg-zinc-950 px-5 text-base text-white outline-none transition placeholder:text-zinc-600 focus:border-zinc-500"
+            className="h-14 flex-1 rounded-xl border border-zinc-800 bg-zinc-950 px-5 text-base text-white outline-none transition placeholder:text-zinc-600 focus:border-zinc-500 disabled:cursor-not-allowed disabled:opacity-60"
           />
 
           <button
             type="submit"
-            className="h-14 rounded-xl bg-white px-8 font-semibold text-black transition duration-200 hover:bg-zinc-200"
+            disabled={isSubmitting}
+            className="h-14 rounded-xl bg-white px-8 font-semibold text-black transition duration-200 hover:bg-zinc-200 disabled:cursor-not-allowed disabled:opacity-60"
           >
-            Join Waitlist
+            {isSubmitting ? "Joining..." : "Join Waitlist"}
           </button>
         </form>
 
-        <p className="mt-5 text-sm text-zinc-500">
-          Launching soon. Join the waitlist.
-        </p>
+        {message ? (
+          <p
+            className={`mt-5 text-sm ${
+              isSuccess ? "text-emerald-400" : "text-red-400"
+            }`}
+          >
+            {message}
+          </p>
+        ) : (
+          <p className="mt-5 text-sm text-zinc-500">
+            Launching soon. Join the waitlist.
+          </p>
+        )}
       </div>
     </section>
   );
