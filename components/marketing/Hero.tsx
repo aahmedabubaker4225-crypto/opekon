@@ -46,14 +46,14 @@ export default function Hero() {
   return (
     <section
       id="waitlist"
-      className="flex min-h-screen items-center bg-black px-6 pb-20 pt-32 text-white"
+      className="flex min-h-[calc(100vh-72px)] items-center justify-center bg-black px-6 py-20 text-white"
     >
-      <div className="mx-auto w-full max-w-5xl text-center">
+      <div className="mx-auto w-full max-w-7xl text-center">
         <p className="mb-6 text-xs font-medium uppercase tracking-[0.3em] text-zinc-500 sm:text-sm">
           The operating system for contractors
         </p>
 
-        <h1 className="mx-auto max-w-5xl text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl lg:text-7xl">
+        <h1 className="mx-auto max-w-6xl text-5xl font-bold leading-[0.98] tracking-[-0.04em] sm:text-6xl lg:text-7xl xl:text-8xl">
           Stop juggling 10 tools.
           <span className="block text-zinc-400">
             Run your business from one platform.
